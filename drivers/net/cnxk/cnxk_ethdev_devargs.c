@@ -304,7 +304,6 @@ cnxk_ethdev_parse_devargs(struct rte_devargs *devargs, struct cnxk_eth_dev *dev)
 	struct rte_kvargs *kvlist;
 	uint32_t meta_buf_sz = 0;
 	uint16_t lock_rx_ctx = 0;
-	uint16_t rx_inj_ena = 0;
 	uint16_t no_inl_dev = 0;
 
 	memset(&sdp_chan, 0, sizeof(sdp_chan));
