@@ -153,7 +153,7 @@ rte_thread_create(rte_thread_t *thread_id,
 			ret = pthread_attr_setaffinity_np(attrp, sizeof(thread_attr->cpuset),
 				&thread_attr->cpuset);
 			if (ret != 0) {
-				EAL_LOG(DEBUG, "pthread_attr_setaffinity_np failed");
+				RTE_LOG(DEBUG, EAL, "pthread_attr_setaffinity_np failed\n");
 				goto cleanup;
 			}
 		}
@@ -196,7 +196,7 @@ rte_thread_create(rte_thread_t *thread_id,
 	ret = pthread_create((pthread_t *)&thread_id->opaque_id, attrp,
 		(void *)(void *)thread_func, args);
 	if (ret != 0) {
-		EAL_LOG(DEBUG, "pthread_create failed");
+		RTE_LOG(DEBUG, EAL, "pthread_create failed");
 		goto cleanup;
 	}
 #else /* !RTE_EAL_PTHREAD_ATTR_SETAFFINITY_NP */
